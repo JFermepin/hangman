@@ -11,7 +11,7 @@ Simple yet very fun Hangman game done with Tkinter.
 - Endless gameplay and plenty of words to discover
 - Endless fun
 
->.[!IMPORTANT]
+> [!IMPORTANT]
 > The words come from the ["random-word-api"](https://random-word-api.herokuapp.com/home) API. Some may not be correct.
 
 ## Requirements
