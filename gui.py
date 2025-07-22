@@ -10,7 +10,8 @@ class MainWindow:
         self.window.title("Hangman")
         self.window.geometry(DIMENSIONS)
         self.window.config(bg="black")
-        self.window.iconphoto(True, PhotoImage(file="images/hangman-6.png"))
+        self.icon = PhotoImage(file="images/hangman-6.png")
+        self.window.iconphoto(True, self.icon)
 
         for i in range(3):
             self.window.grid_rowconfigure(i, weight=1)
