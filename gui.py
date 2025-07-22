@@ -10,6 +10,7 @@ class MainWindow:
         self.window.title("Hangman")
         self.window.geometry(DIMENSIONS)
         self.window.config(bg="black")
+        self.window.iconphoto(True, PhotoImage(file="images/hangman-6.png"))
 
         for i in range(3):
             self.window.grid_rowconfigure(i, weight=1)
@@ -56,20 +57,23 @@ class MainWindow:
 
         # Fetch a random word based on the level and language
         word = get_random_word(level, language)
-        print(word)
 
         # Game UI setup
+
+        level_frame = Label(self.window, text=f"Level {self.current_level}", font=("Arial", 30), bg="black", fg="white", padx=10, pady=10)
+        level_frame.grid(row=0, column=1)
+
         word_frame = Frame(self.window, bg="black")
         word_frame.grid(row=1, column=1)
 
         word_label = Label(word_frame, text=format_word(word), font=("Arial", 30), bg="black", fg="white", image=self.hangman_image, compound="top", padx=10, pady=10)
         word_label.pack(padx=10, pady=10)
 
-        letters_frame = Frame(self.window, bg="white", highlightbackground="white", highlightthickness=1)
+        letters_frame = Frame(self.window, bg="white")
         letters_frame.grid(row=2, column=0, pady=20, columnspan=3)
 
         letters_label = Label(letters_frame, text="Used letters: ", font=("Arial", 20), bg="black", fg="white")
-        letters_label.pack(padx=10, pady=10)
+        letters_label.pack()
 
         # Bind key events and logic for the word guessing game
         self.window.bind("<Key>", lambda event: self.guess_letter(event, word_label, letters_label, word))
